@@ -33,7 +33,6 @@ const RelatedDoctors = ({docId,speciality}) => {
         })
         }  
     </div>
-    <button onClick={() => {navigate('/doctors');scrollTo(0,0)}} className='bg-blue-50 text-gray-600 py-3 px-12 rounded-full mt-10'>more</button>
     </div>
   )
 }
