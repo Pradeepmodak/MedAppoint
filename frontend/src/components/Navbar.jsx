@@ -31,9 +31,9 @@ const Navbar=()=>{
    </NavLink>
     </ul>
      
-     <div className='flex items-center gap-4'>
+     <div className='flex items-center gap-4 '>
      {token?
-     <div className='flex items-center gap-2 cursor-pointer group relative'>
+     <div className=' flex items-center gap-2 cursor-pointer group relative '>
         <img className='w-8 rounded-full' src={assets.profile_pic} alt="" />
         <img className='w-2.5 ' src={assets.dropdown_icon} alt="" />
         <div className='absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 z-20 hidden group-hover:block'>
@@ -48,7 +48,22 @@ const Navbar=()=>{
     <button 
     onClick={() => navigate('/login')}
     className='bg-[#5f6FFF] text-white py-3 px-8 rounded-full font-light hidden md:block '>Create Account</button>
-}</div>
+}
+<img onClick={() => setShowMenu(true) } className='w-6 md:hidden' src={assets.menu_icon} alt="" />
+{/* mobile menu */}
+<div className={`${showMenu?'fixed w-full':'h-0 w-0'} md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all duration-300 ease-in-out`}>
+  <div className='flex items-center justify-between px-5 py-6  '>
+      <img className='w-36' src={assets.logo} alt="" />
+      <img  onClick={() => setShowMenu(false) } className='w-7' src={assets.cross_icon} alt="" />
+  </div>
+  <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
+    <NavLink  onClick={() => setShowMenu(false) } to={'/'}><p className='px-4 py-2 inline-block'>HOME</p></NavLink>
+    <NavLink  onClick={() => setShowMenu(false) } to={'/doctors'}><p className='px-4 py-2 inline-block'>ALL DOCTORS</p></NavLink>
+    <NavLink  onClick={() => setShowMenu(false) } to={'/about'}><p className='px-4 py-2 inline-block'>ABOUT</p></NavLink>
+    <NavLink  onClick={() => setShowMenu(false) } to={'/contacts'}><p className='px-4 py-2 inline-block'>CONTACT</p></NavLink>
+  </ul>
+</div>
+</div>
     </div>
   )
 }
