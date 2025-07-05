@@ -39,7 +39,7 @@ const Doctors = () => {
      <div className='w-full grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4 gap-y-6'>
      {
       filterDoc.map((item,index)=>{
-        return(
+        return(  
         <div key={index} onClick={() => navigate(`/appointment/${item._id}`)} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'>
         <img className='bg-blue-50' src={item.image} alt=""/>
         <div className='p-4'>
