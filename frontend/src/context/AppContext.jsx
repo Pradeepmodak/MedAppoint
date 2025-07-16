@@ -46,7 +46,8 @@ const AppContextProvider=(props)=>{
       backendUrl,
       userData,
       setUserData,
-      loadUserProfileData
+      loadUserProfileData,
+      getDoctorsData
     }
     useEffect(()=>{
         getDoctorsData();
