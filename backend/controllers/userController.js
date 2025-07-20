@@ -235,7 +235,7 @@ const paymentRazorpay = async (req, res) => {
 
     // creating options for razorpay
     const options = {
-      amount: appointmentData.amount * 100,
+      amount: appointmentData.amount * 10000,
       currency: process.env.RAZORPAY_CURRENCY,
       receipt: appointmentId,
     };
@@ -251,7 +251,9 @@ const paymentRazorpay = async (req, res) => {
 //API to verify payment of razorpay
 const verifyRazorPay = async (req, res) => {
   try {
-    const { razorpay_order_id } = req.id;
+   
+   const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = req.body;
+
     const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
     // console.log(orderInfo);
     if (orderInfo.status === "paid") {
