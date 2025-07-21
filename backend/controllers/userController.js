@@ -43,7 +43,7 @@ const registerUser = async (req, res) => {
     const newUser = new userModel(userData);
     const user = await newUser.save();
     // _id
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
     return res.json({
       success: true,
       message: "User registered successfully",
@@ -84,7 +84,9 @@ const loginUser = async (req, res) => {
 const getProfile = async (req, res) => {
   try {
     const { userId } = req.body;
+    // console.log(userId);
     const userData = await userModel.findById(userId).select("-password");
+    // console.log(userData);
     res.json({ success: true, userData });
   } catch (error) {
     console.log(error);

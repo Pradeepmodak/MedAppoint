@@ -9,7 +9,7 @@ const Navbar=()=>{
  const navigate= useNavigate(); 
  const {token,setToken,userData}=useContext(AppContext);
  const [open,setOpen]=useState(false);
- console.log(open);
+//  console.log(open);
  const [showMenu,setShowMenu]=useState(false);
  const logout=()=>{
    setToken(false);
