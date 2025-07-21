@@ -96,7 +96,7 @@ const DoctorContextProvider = (props) => {
     completeAppointment,
     cancelAppointment,
     getDashData,
-    dashData,getDashData,
+    dashData,
     getProfileData,
     profileData,
     setProfileData
